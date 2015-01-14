@@ -54,23 +54,26 @@ public class Game
         return items;
     }
     
-//    public void lookInventory()
-//    {
-//    ArrayList<Item> item = new ArrayList<Item>();
-//    for (Item i : item) 
-//    {
-//    Item.lookItem();
-//    }    
-//    }
-    
+    /**
+     * Get the list of character of game
+     * @return 
+     */
     public static ArrayList<Characters> getListCharacters(){
         return characters;
     }
     
+    /**
+     * Get the player of game : Mr.Kitten
+     * @return 
+     */
     public Players getPlayers(){
         return MrKitten;
     }
     
+    /**
+     * Get the current room of game
+     * @return 
+     */
     public Room getRoom(){
         return currentRoom;
     }
@@ -100,7 +103,7 @@ public class Game
         theCloset = new Room ("You are ready to fight with lions","theCloset","\\narnia.png");
         theEnd = new Room ("You did it, you did it, Yeah!","theEnd","\\nyancat.png");
         
-        //Declare doors and items
+        //Declare doors and key
         Door doorKLr = new Door(livingRoom,kitchen); kitchen.addExit("east", doorKLr); livingRoom.addExit("west",doorKLr); 
         Door doorBLr = new Door (bedroom, livingRoom); livingRoom.addExit("east",doorBLr); bedroom.addExit("west",doorBLr);
         Item keyLivingStreet = new Item("home key", "this key opens the door to exit the master's house",0);
@@ -127,6 +130,7 @@ public class Game
      */
     private void createItems()
     {
+        //Declare item
         Item potionCareMin = new Item ("potionCareMin","This potion heals you for a small amount of your health",5);
         Item potionCareMax = new Item ("potionCareMax","This potion heals you for a big amount of your health",25);
         Item potionCareMean = new Item("potionCareMean","This potion heals you for a medium amount of your health",20);
@@ -134,9 +138,11 @@ public class Game
         Item potionBonus = new Item("potionBonus", "This potion heals you for a big amount of your health", 25); //A COMPLETER
         Item superBite = new Item ("superBite","It's sharp and ready to rip your opponents' heads off",10);
         Item superPiss = new Item ("superPiss","Wow it's dirty",8);
-        Item puppyEyes = new Item ("puppy eyes", "Use this look to charm anyone", 13);
-        Item laserTail = new Item ("laser tail", "May the catnip be with you, young Catawan.", 20);
+        Item puppyEyes = new Item ("puppyEyes", "Use this look to charm anyone", 13);
+        Item laserTail = new Item ("laserTail", "May the catnip be with you, young Catawan.", 20);
         Item artefactOfTrueVision = new Item ("Artefact Of True Vision","With this mask you'll be able to see everything! In green tho... but that's cool!",10);
+        
+        //Add item in the list of items
         items.add(artefactOfTrueVision);
         items.add(potionCareMin);
         items.add(potionCareMax);
@@ -157,6 +163,7 @@ public class Game
      * Create all characters in the game
      */
     public void createCharacters() {
+        //Declare character
         Characters goldFish = new Characters("Gold Fish", 10, 3,"Blub blub blub blob. Please don't kill me.", "livingRoom");
         Characters garfield = new Characters("Garfield", 30, 5,"...", "street1");
         Characters strayCat = new Characters("strayCat", 20, 5,"...", "street2");
@@ -170,7 +177,8 @@ public class Game
         Characters darkVador = new Characters("Dark Vador", 40, 25,"Shhhh...Shhhh...Are you a rebel? You look like a strange Ewok..."
                 + "Anyway, no one can enter a colonized planet like this! I will execute you!", "star wars");//A COMPLETER
         Characters brother = new Characters("Brother", 50, 30,"...", "theEnd");
-    
+        
+        //Add character in the list of character
         characters = new ArrayList<Characters>();
         characters.add(goldFish);
         characters.add(garfield);
@@ -303,6 +311,7 @@ public class Game
         
         // Try to leave current room.
         Door nextDoor = currentRoom.getNextRoom(direction);
+        //If the door is locked
         if (nextDoor instanceof LockedDoor){
             LockedDoor l = (LockedDoor)nextDoor;
             currentRoom = l.openLockedDoor(MrKitten.getInventory(),currentRoom);
@@ -341,6 +350,10 @@ public class Game
         }
     }
     
+    /**
+     * Get the current room of the game
+     * @return 
+     */
     public Room getCurrentRoom()
     {
         return currentRoom;
@@ -367,6 +380,7 @@ public class Game
      */
     private void fightPeople()
     { 
+        //Recup data
         String ennemi = "";
         int ennemiHP=0;
         int ennemiAD=0;
@@ -381,10 +395,12 @@ public class Game
                 break;
             }
         }  
+        //Check if there is a character in the current room
         if (charactersFind == false) {
             System.out.println("There is no character in this room");
         }
         else {
+            //Start the figth
             if (ennemi.equals("mrRobot")){
                 Actors.mrRobotDialog();
             }
@@ -402,6 +418,7 @@ public class Game
                     System.out.println(" Enter the character please :");
                     Scanner keyboard = new Scanner(System.in);
                     String answer = keyboard.nextLine();
+                    //Choose a type of attack
                     switch (answer){
                         case "a": {
                             ennemiHP=attack(ennemiHP);
@@ -414,12 +431,14 @@ public class Game
                             };break;
                         default:  System.out.println("what the hell did you just say? You are fighting, you take dommage"); break;
                     }
+                //Ennemi attack the player
                 if(ennemiHP >0){
                     Random nbRd = new Random();
                     int nextnb = nbRd.nextInt(ennemiAD)+1;
                     MrKittenHP =  MrKittenHP - nextnb;
                 }
             }
+            //Check if there is a winner
             if (ennemiHP <= 0){
                 System.out.println("You win !!! It remains "+MrKittenHP+" HP");
                 Players.setPlayerHP(MrKittenHP);
@@ -429,6 +448,7 @@ public class Game
             }
         }
     }
+    
     /**
      * Reduce ennemi HP by a normal attack
      */
@@ -440,8 +460,6 @@ public class Game
      
         return ennemiHP;
     }
-    
-       
     
     /*
     * Choose a special attack - interface version
@@ -499,6 +517,7 @@ public class Game
     {
         boolean specialAttack = false;
         System.out.println(" What would you like ? ");
+        //Print different attack
         for (int i = 0;i<MrKitten.getInventory().size();i++){
             Item currentItem = MrKitten.getInventory().get(i);
             if (currentItem.getName().equals("superPiss")){
@@ -519,6 +538,7 @@ public class Game
             }
         }
         if(specialAttack == true){
+            //Choose the special attack
             System.out.println(" Enter the character please :");
             Scanner keyboard = new Scanner(System.in);
             String answer = keyboard.nextLine();
@@ -550,6 +570,7 @@ public class Game
     {
         boolean itemsAttack = false;
         System.out.println(" What would you like to add your HP ? ");
+        //Print items
         for (int i = 0;i<MrKitten.getInventory().size();i++){
             Item currentItem = MrKitten.getInventory().get(i);
             if (currentItem.getName().equals("potionCareMin")){
@@ -574,6 +595,7 @@ public class Game
             }
         }
         if(itemsAttack == true){
+            //Choose items
             System.out.println(" Enter the character please :");
             Scanner keyboard = new Scanner(System.in);
             String answer = keyboard.nextLine();
@@ -600,6 +622,7 @@ public class Game
                 };break;
                 default:  System.out.println("what the hell did you just say? You are fighting, you take dommage"); break;
             }
+            //PlayerHP max = 120 
             if(playerHP >120){
                 playerHP = 120;
             }
@@ -609,6 +632,9 @@ public class Game
         return playerHP;
     }
     
+    /**
+     * Talk people
+     */
     private void talkRoomPeople(){
         if (currentRoom.getName().equals("dory")){
             System.out.println("DORY :");
@@ -629,24 +655,26 @@ public class Game
         }
     }
     
+    /**
+     * Explore different room with interface
+     * @param in 
+     */
     public void exploreRoomTest(Interface in){
-        //CECI EST UN TEST
-        //in.jTextArea1.setText("actuellement, je suis dans "+ currentRoom.getName());
         int MrKittenHP = MrKitten.getPlayerHP();
         switch(currentRoom.getName()){
+            //quest from living room
             case "livingRoom" :
                 in.jTextArea1.setText(ExpInfo.printlivingRoom_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
-                /*if(in.jButtonAMouseClicked(java.awt.event.MouseEvent evt)){
-                    in.jTextArea1.setText(ExpInfo.printlivingRoom_answerA());
-                }*/
                 break;
+            //quest from kitchen
             case "kitchen" :
                 in.jTextArea1.setText(ExpInfo.printKitchen_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
                 break;
+            //quest from bedroom
             case "bedroom" : 
                 in.jTextArea1.setText(ExpInfo.printbedroom_intro());
                 in.jButtonA.setVisible(true);
@@ -654,30 +682,37 @@ public class Game
                 in.jButtonC.setVisible(true);
                 in.jButtonD.setVisible(true);
                 break;
+            //quest from street1
             case "street1" :
                 in.jTextArea1.setText(ExpInfo.printStreet1_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
                 break;
+            //quest from street 2
             case "street2" :
                 in.jTextArea1.setText(ExpInfo.printStreet2_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
                 break;
+            //quest from sewer
             case "sewer" :
                 in.jTextArea1.setText(ExpInfo.printSewer_intro());
                 //Se battre contre le rat, si victoire lancer la suite
                 in.jTextArea1.setText(ExpInfo.printSewer_conclu());//ça c'est la suite
                 //ajout de l'item super piss
+                MrKitten.grabItem("superPiss");
                 break;
+            //quest from petshop
             case "petshop" :
                 in.jTextArea1.setText(ExpInfo.printPetshop_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
                 break;
+            //quest from the Great descent    
             case "theGreatDescent" :
                 in.jTextArea1.setText(ExpInfo.printgreatdescent_intro());
                 break;
+            //quest dory
             case "dory" : 
                 in.jTextArea1.setText(ExpInfo.printdory_intro());
                 in.jButtonA.setVisible(true);
@@ -685,23 +720,28 @@ public class Game
                 in.jButtonC.setVisible(true);
                 in.jButtonD.setVisible(true);
                 break;
+            //quest from the Fish palace
             case "theFishPalace" : //manque la partie end après le combat
                 in.jTextArea1.setText(ExpInfo.printfishpalace_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
                 break;
+            //quest from tavern san ricardo
             case "tavernSanRicardo" : //manque la partie end après le combat
                 in.jTextArea1.setText(ExpInfo.printtavern_intro());
                 MrKitten.grabItem("puppyEyes");
                 break;
+            //quest from star wars
             case "starWars" : 
                 in.jTextArea1.setText(ExpInfo.printvador_intro());
                 in.jButtonA.setVisible(true);
                 in.jButtonB.setVisible(true);
                 break;
+            //quest from the closet
             case "theCloset" : 
                 in.jTextArea1.setText(ExpInfo.printcloset_intro());
                 break;
+            //quest from the end
             case "theEnd" : 
                 in.jTextArea1.setText(ExpInfo.printend_intro());
                 in.jButtonA.setVisible(true);
@@ -712,6 +752,10 @@ public class Game
         }
     }
     
+    /**
+     * Explore room with console game
+     * @return 
+     */
     public String exploreRoom(){
         String answer;
         int MrKittenHP = MrKitten.getPlayerHP();
@@ -1114,7 +1158,10 @@ public class Game
         return ("Coucou");
 }
 
-    
+    /**
+     * Print the inventory with interface
+     * @param in 
+     */
     public void inventory(Interface in){
         MrKitten.printInventoryIN(in);
     }

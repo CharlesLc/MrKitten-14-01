@@ -10,17 +10,27 @@ package mr_kitten;
  * @author Charles
  */
 public class ExpInfo {
+    
+    /**
+     * Print the message of error in the interface
+     * @return 
+     */
      protected static String printanswerError(){
       String   answerError = ("/n Bizarre que ça ne marche pas...");
       return answerError;
     }
     
+     /**
+      * Print the death message
+      * @return 
+      */
      protected static String printdeathMessage(){
          String deathMessage = ("You loose !! GAME OVER !!");
          return deathMessage;
      }
+     
     /**
-     * Print of living room
+     * Print the introduction of living room
      * @return 
      */
     protected static String printlivingRoom_intro(){
@@ -31,7 +41,11 @@ public class ExpInfo {
                 + "\n Choose your answer :");
         return intro; 
     }
-
+    
+    /**
+     * Print the answer of living room
+     * @return 
+     */
     protected static String printlivingRoom_answerA(){
        String answerA = ("/n You totaly nailed it! But you noticed that a key droped on the floor... What could it be?!");
        return answerA; 
@@ -42,6 +56,10 @@ public class ExpInfo {
        return answerB; 
     }
     
+    /**
+     * Print the conclusion of living room
+     * @return 
+     */
     protected static String printlivingRoom_conclu(){
             String conclu = ("Need to do something else...\n"
                 + "\n Oh! A goldfish! Seems tasty..."
@@ -52,13 +70,17 @@ public class ExpInfo {
         return conclu; 
     }
     
+    /**
+     * Print the end of living room
+     * @return 
+     */
     protected static String printlivingRoom_end(){
        String end = ("/n Hum... Yum!");
        return end; 
     }
     
     /**
-     * Print of kitchen 
+     * Print the introduction of kitchen 
      */
     protected static String printKitchen_intro(){
         String intro =("Best place of the world for all cordon bleu. Their is always something to eat. \n"
@@ -70,6 +92,10 @@ public class ExpInfo {
         return intro;
     }
     
+    /**
+     * Print the answer of kitchen
+     * @return 
+     */
     protected static String printKitchen_answerA(){
         String answerA =("\n Oohh, you're sad :( Their is only the half salt butter but it work. You eat it and gain 25 hp !");
         return answerA;            
@@ -80,9 +106,8 @@ public class ExpInfo {
         return answerB;            
     }
     
-    
     /**
-     * Print of bedroom
+     * Print the introduction of bedroom
      */
     protected static String printbedroom_intro(){
         String intro = ("The master isn't here. It's a great opportunity to discover this unknow room."
@@ -95,6 +120,10 @@ public class ExpInfo {
         return intro;
     }
     
+    /**
+     * Print the answer of bedroom
+     * @return 
+     */
     protected static String printbedroom_answerA(){
         String answerA = ("Oohh, you're so exited to play in your castle and after ripped the pillow you eat accidently a feather. "
                 + "\n You loose 5 hp.");
@@ -141,8 +170,9 @@ public class ExpInfo {
         String answerD = ("You're taking a snap. Nothing else happen. Let's go explore news horizons !");
         return answerD;
     }
+    
     /**
-     * Print of street1
+     * Print the introduction of street1
      */
       protected static String printStreet1_intro(){
           String intro = ("You look around you and see a big old cat on the street, coming toward you.\n"
@@ -156,6 +186,10 @@ public class ExpInfo {
           return intro;
       }
       
+      /**
+       * Print the answer of street1
+       * @return 
+       */
       protected static String printStreet1_answerA(){
           String answer = Actors.garfieldDialog();
           return answer;
@@ -167,7 +201,7 @@ public class ExpInfo {
       }
       
       /**
-       * Print of street 2
+       * Print the intrducion of street 2
        */
       protected static String printStreet2_intro(){
           String intro = ("Here you are! Back in the light!\n"
@@ -179,6 +213,10 @@ public class ExpInfo {
             return intro;
       }
       
+      /**
+       * Print the answer of street2
+       * @return 
+       */
       protected static String printStreet2_answerA(){
           String answer = ("Uh-Oh! There is already someone in this garbage can! \n"
                   +"\n This stray cat doesn't look soft! \n");
@@ -191,7 +229,7 @@ public class ExpInfo {
       }
       
       /**
-       * Print of sewer
+       * Print the introduction of sewer
        */
       protected static String printSewer_intro(){
           String intro = ("Look! A wild rat is coming toward you! \n"
@@ -199,6 +237,10 @@ public class ExpInfo {
           return intro;
       }
       
+      /***
+       * Print the conclusion of sewer
+       * @return 
+       */
       protected static String printSewer_conclu(){
           String conclu = ("Congratulations! You have learned a new ability : SuperPiss \n"
                   +"\n You are now able to pee on people in a...deadly way... \n");
@@ -206,7 +248,7 @@ public class ExpInfo {
       }
       
       /**
-       * Print of petshop
+       * Print the introduction of petshop
        */
       protected static String printPetshop_intro(){
           String intro = ("A red fish appears! He looks stern... \n"
@@ -219,6 +261,10 @@ public class ExpInfo {
           return intro;
       }
       
+      /**
+       * Print the answer of petshop
+       * @return 
+       */
       protected static String printPetshop_answerA() {
           String answerA = (Actors.ratatouilleDialog()
                   + "\n Congratulations! You just learned Alchemy! You are now able to craft objects using this principle.");
@@ -229,19 +275,29 @@ public class ExpInfo {
           String answerB = ("Let us hope you will not regret it...");
           return answerB;
       }
+      
+      /**
+       * Print the message of fight in petshop
+       * @return 
+       */
       protected static String printPetshop_fight() {
             String fight= ("Sheeiiiiiit! You woke up the tyran of the petshop, the robot cleaner!"
                    + "\n"
                    + Actors.mrRobotDialog());
            return fight;
        }
+      
+      /**
+       * Print the end of petshop
+       * @return 
+       */
       protected static String printPetshop_end(){
           String end= ("The robot has dropped a potion. Will you make good use of it?");
           return end;
       }
       
       /**
-       * Print of the great descent
+       * Print the introduction of the great descent
        */
       protected static String printgreatdescent_intro(){
           String intro=("A group of dangerous looking sharks is swimming toward you!"
@@ -249,14 +305,19 @@ public class ExpInfo {
                   + Actors.sharkDialog());
           return intro;
       }
-      protected static String printgreatdescent_end(){ //pas encore fait, implémenter combat en 1er
+      
+      /**
+       * Print the end of the great descent
+       * @return 
+       */
+      protected static String printgreatdescent_end(){ 
           String end= ("You just hit this shark so hard that its jaw just got torn apart from the rest of its body!"
                   + "\n Congratulations! You can now bite your ennemies with this super jaw!");
           return end;
       }
       
       /**
-       * Print of Dory
+       * Print the introduction of Dory
        */
       protected static String printdory_intro(){
           String intro= ("Who dat, who dat? How could you do dat, do dat? There's a surgeon fish over there, how could you know that, know that?"
@@ -264,6 +325,11 @@ public class ExpInfo {
                   + Actors.doryDialog_intro());
           return intro;
       }
+      
+      /**
+       * Print the answer of Dory
+       * @return 
+       */
       protected static String printdory_answerA(){
           String answerA=("Oh I remember now!! Thank you big guy!"+Actors.doryDialog_good());
           return answerA;
@@ -312,7 +378,7 @@ public class ExpInfo {
 //      }
       
       /*
-      * Print of the fishpalace
+      * Print the iontroduction of the fishpalace
       */
       protected static String printfishpalace_intro(){
           String intro=("You just entered the fish palace. It is magnificent and amazing."
@@ -354,7 +420,7 @@ public class ExpInfo {
       }
       
       /*
-      * Print for the tavern SanRicardo
+      * Print the introduction of the tavern SanRicardo
       */
       protected static String printtavern_intro(){
           String intro=("You see a gorgeous looking cat with red-orange fur."
@@ -371,7 +437,7 @@ public class ExpInfo {
 //      }
       
       /*
-      * Print for vador
+      * Print the introduction of dark vador
       */
       protected static String printvador_intro(){
           String intro=("Nice neon lights illuminate a dark desk. "
@@ -387,6 +453,11 @@ public class ExpInfo {
                   + "\n Choose your answer :");
           return intro;
       }
+      
+      /**
+       * Print the answer of dark vador
+       * @return 
+       */
       protected static String printvador_answerA(){
           String answerA=("After many years of hard work and after encounter your wife and produced lot of baby ... "
                   + "\n You died of old age :( R.I.P "
@@ -408,7 +479,7 @@ public class ExpInfo {
 //      }
       
       /*
-      * Print of thcloset
+      * Print the introduction of the closet
       */
       protected static String printcloset_intro(){
           String intro=("There is big wooden cupboard in front of you."
@@ -435,7 +506,7 @@ public class ExpInfo {
 //      }
        
        /*
-       * Print foe the end
+       * Print the introduction of the end
        */
        protected static String printend_intro(){
            String intro=("What is this?! Oh my God..."
@@ -446,6 +517,11 @@ public class ExpInfo {
                    + "\n Choose your answer :");
            return intro;
        }
+       
+       /**
+        * Print the answer of the end
+        * @return 
+        */
        protected static String printend_answerA(){
            String answerA=("Wow! The power of the magic guillotine is real! You just turned into a Nyan Cat!"
                    + "\n Infinite powers aheeeeeaaaaaad!!! Yay!");

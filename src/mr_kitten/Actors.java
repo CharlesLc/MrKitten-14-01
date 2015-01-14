@@ -13,68 +13,12 @@ import java.util.*;
  */
 public class Actors
 {
-    // instance variables - replace the example below with your own
-    private int actorHealth;
-    private String actorName;
-    private int attackDamage;
-    private String critWeakness;
-    private Room position;
-    private String punchline;
-
+   
     /**
-     * Constructor for objects of class Actors
-     */
-    public Actors(String name, int health, int attack, String weakness, Room position, String punchline)
-    {
-        actorHealth = health;
-        actorName = name;
-        attackDamage = attack;
-        critWeakness = weakness;
-        this.position = position;
-        this.punchline = punchline;
-    }
-    
-    /**
-     * get health
-     */
-    public int getHealth ()
-    {
-        return actorHealth;
-    }
-    
-    /**
-     * get AD
-     */
-    public int getAD ()
-    {
-        return attackDamage;
-    }
-    
-    /**
-     * get name
-     */
-    public String getActorName()
-    {
-        return actorName;
-    }
-    
-    /**
-     * get weakness
-     */
-    public String getWeakness()
-    {
-        return critWeakness;
-    }
-    
-    /**
-     * get position
-     */
-    public Room getActorPosition()
-    {
-        return position;
-    }
-    
-     
+     * 
+     * Dialog of red fish
+     * @return 
+     */ 
     public static String redFishDialog(){
         String redFish = ("Mr Kitten, \n"
                 +"\n I am here to inform you that the King of the Waterworld summons you to the underwater court.\n"
@@ -83,6 +27,10 @@ public class Actors
         return redFish;
     }
     
+    /**
+     * Dialog of ratatouille
+     * @return 
+     */
     public static String ratatouilleDialog(){
         String ratatouille =("Hello, young cat. I have heard of you. I think you could use some help in your quest."
                 + "\n I can teach you something, and I hope you will make good use of it. I also hope that this action will unite the Cats and Rats race for a very long time."
@@ -90,6 +38,10 @@ public class Actors
         return ratatouille;
     }
     
+    /**
+     * Dialog of Mr.Robot
+     * @return 
+     */
     public static String mrRobotDialog(){
         String robotDialog = ("Bip Beep Bop, stranger detected. Beep beep, danger incoming"
                 + "\n Must..destroy..."
@@ -98,6 +50,10 @@ public class Actors
         return robotDialog;
     }
     
+    /**
+     * Dialog of garfield
+     * @return 
+     */
     public static String garfieldDialog(){
     String garfield =("Hey buddy...What are you carrying there? \n"
             +"\n Oh my...Is that the ancient Cat book? Are you a descendant of the Ancients? \n"
@@ -109,11 +65,19 @@ public class Actors
         return garfield;
     }
     
+    /**
+     * Dialog of shark
+     * @return 
+     */
     public static String sharkDialog(){
         String shark= ("Look at that Bruce! A furry fish! We have to taste that. Prepare to die!");
         return shark;
     }
     
+    /**
+     * Dialog of dark moule
+     * @return 
+     */
     public static String darkMouleDialog(){
         String darkmoule= ("Who do you think you are?!"
                 + "\n You cannot prevail, you silly kitty..."
@@ -121,6 +85,10 @@ public class Actors
         return darkmoule;
     }
     
+    /**
+     * Dialog of puss in boots
+     * @return 
+     */
     public static String pussInBootsDialog(){
         String inboots= ("Hola, Senor Gato!"
                 + "\n I see you come from the portal. It has been a long time since it has been used!"
@@ -130,6 +98,10 @@ public class Actors
         return inboots;
     }
     
+    /**
+     * Dialog of brothers
+     * @return 
+     */
     public static String brotherDialog(){
         String brother = ("So, here you are...brother. I have been waiting for you."
                 + "\n Do not look so suprised! I am an Ancient Cat, just like you."
@@ -140,7 +112,12 @@ public class Actors
                 + "\n I will never let you take it!");
         return brother;
     }
-     public static String vadorDialog_a() {
+    
+    /**
+     * Dialog of dark vador
+     * @return 
+     */
+    public static String vadorDialog_a() {
         String vadorA= ("Oh well ! A new visitor in my house. Do you know where you are ?"
                 + "\n Because I'm the answer to all your questions indeed I'm in the darkside where all is possible ! Ahahah !"
                 + "\n I can propose to you a nice offer. A full time job in the darkside coorporation !");
@@ -153,6 +130,10 @@ public class Actors
         return vadorB;
     }
     
+    /**
+     * Dialog of dory
+     * @return 
+     */
     public static String doryDialog_intro (){
         String dory=("You got a problem buddy?! Wait, did I just said that? Oh, I just met you,"
                 + "\n and this is crazy, but here's my number. Hey how is it going mate?"

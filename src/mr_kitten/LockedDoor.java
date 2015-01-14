@@ -30,11 +30,12 @@ public class LockedDoor extends Door
     }
     
     /**
-       * 
+     *Open a door locked by a key 
     */
     public Room openLockedDoor(ArrayList<Item> a, Room currentRoom)
     {
         boolean hasKey = false;
+        //Find a key
         for(Item k:a){
             if (k.getName().equals(Key.getName())){
                 hasKey = true;

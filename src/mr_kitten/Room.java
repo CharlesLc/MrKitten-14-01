@@ -47,6 +47,10 @@ public class Room
         this.image=image;
     }
     
+    /**
+     * Get image of room for the interface
+     * @return 
+     */
     public String getImage(){
         return image;
     }
@@ -75,6 +79,11 @@ public class Room
         }
     }
     
+    /**
+     * Get the next room
+     * @param direction
+     * @return 
+     */
     public Door getNextRoom(String direction){
         return HM.get(direction);
     }
@@ -87,9 +96,11 @@ public class Room
         return description;
     }
 
+    /**
+     * Get the name of room
+     * @return 
+     */
     public String getName() {
         return name;
-    }
-    
-    
+    }    
 }

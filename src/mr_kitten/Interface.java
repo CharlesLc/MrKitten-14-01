@@ -330,18 +330,30 @@ public class Interface extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Evenement when shut down with the mouse clicked
+     * @param evt 
+     */
     private void ShutdownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShutdownMouseClicked
-    System.exit(1);
-    // g.goRoom(new Command("go","north")); pour bouger de salle en fct de la direction avec les fleches
+        System.exit(1);
+        // g.goRoom(new Command("go","north")); pour bouger de salle en fct de la direction avec les fleches
     }//GEN-LAST:event_ShutdownMouseClicked
-
+    
+    /**
+     * Evenement when click the explore button
+     * @param evt 
+     */
     private void ExploreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExploreMouseClicked
         g.exploreRoomTest(this);
     }//GEN-LAST:event_ExploreMouseClicked
 
+    /**
+     * Evenement when click the help button
+     * @param evt 
+     */
     private void HelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpMouseClicked
-    jTextArea1.setText(g.printHelp());
+        jTextArea1.setText(g.printHelp());
     }//GEN-LAST:event_HelpMouseClicked
 
 //DEPLACEMENT ENTRE LES ROOMS
@@ -381,15 +393,27 @@ public class Interface extends javax.swing.JDialog {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
-
+    
+    /**
+     * Evenement when click with look button
+     * @param evt 
+     */
     private void LookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LookMouseClicked
-    jTextArea1.setText((g.currentRoom.getDescription()));    // TODO add your handling code here:
+        jTextArea1.setText((g.currentRoom.getDescription()));    // TODO add your handling code here:
     }//GEN-LAST:event_LookMouseClicked
 
+    /**
+     * Evenement when click with item button
+     * @param evt 
+     */
     private void ItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemsMouseClicked
         g.inventory(this);
     }//GEN-LAST:event_ItemsMouseClicked
 
+    /**
+     * Evenement when click a A button
+     * @param evt 
+     */
     private void jButtonAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAMouseClicked
         String currentRoom = g.getCurrentRoom().getName();
         //quest from living room
@@ -407,11 +431,13 @@ public class Interface extends javax.swing.JDialog {
                 jButtonB.setVisible(false);
             }    
         }
+        //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerA());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the bedroom
         else if (currentRoom.equals("bedroom")){
             if (!questBedroom){
                 jTextArea1.setText(ExpInfo.printbedroom_answerA());
@@ -426,21 +452,25 @@ public class Interface extends javax.swing.JDialog {
                 jButtonB.setVisible(false);
             }
         }
+        //quest from the street1
         else if (currentRoom.equals("street1")){
             jTextArea1.setText(ExpInfo.printStreet1_answerA());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the street2
         else if (currentRoom.equals("street2")){
             jTextArea1.setText(ExpInfo.printStreet2_answerA());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerA());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerA());
@@ -454,17 +484,20 @@ public class Interface extends javax.swing.JDialog {
                 jButtonD.setVisible(false);
             }
         }
+        //quest from the fish palace
         else if (currentRoom.equals("theFishPalace")){
             jTextArea1.setText(ExpInfo.printfishpalace_answerA());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
             g.getPlayers().grabItem("algea");
         }
+        //quest from the star wars
         else if (currentRoom.equals("starWars")){
             jTextArea1.setText(ExpInfo.printvador_answerA());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the end
         else if (currentRoom.equals("theEnd")){
             jTextArea1.setText(ExpInfo.printend_answerA());
             jButtonA.setVisible(false);
@@ -472,8 +505,13 @@ public class Interface extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonAMouseClicked
 
+    /**
+     * Evenement when click a B button
+     * @param evt 
+     */
     private void jButtonBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBMouseClicked
         String currentRoom = g.getCurrentRoom().getName();
+        //quest from living room
         if(currentRoom.equals("livingRoom")){
             if(quest1 == false) {
                 jTextArea1.setText(ExpInfo.printlivingRoom_answerB());
@@ -486,11 +524,13 @@ public class Interface extends javax.swing.JDialog {
                 jButtonB.setVisible(false);
             }
         }
+        //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerB());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the bedroom
         else if (currentRoom.equals("bedroom")){
             if (!questBedroom){
                 jTextArea1.setText(ExpInfo.printbedroom_answerB());
@@ -505,22 +545,26 @@ public class Interface extends javax.swing.JDialog {
                 jButtonB.setVisible(false);
             }
         }
+        //quest from the street1
         else if (currentRoom.equals("street1")){
             jTextArea1.setText(ExpInfo.printStreet1_answerB());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
             g.getPlayers().grabItem("potionCareMin");
         }
+        //quest from the street2
         else if (currentRoom.equals("street2")){
             jTextArea1.setText(ExpInfo.printStreet2_answerB());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerB());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerB());
@@ -537,16 +581,19 @@ public class Interface extends javax.swing.JDialog {
                 jButtonD.setVisible(false);
             }
         }
+        //quest from the fish palace
         else if (currentRoom.equals("theFishPalace")){
             jTextArea1.setText(ExpInfo.printfishpalace_answerB());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the star wars
         else if (currentRoom.equals("starWars")){
             jTextArea1.setText(ExpInfo.printvador_answerB());
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
         }
+        //quest from the end
         else if (currentRoom.equals("theEnd")){
             jTextArea1.setText(ExpInfo.printend_answerB());
             jButtonA.setVisible(false);
@@ -554,14 +601,22 @@ public class Interface extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonBMouseClicked
 
+    /**
+     * Evenement when click a C button
+     * @param evt 
+     */
     private void jButtonCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCMouseClicked
         String currentRoom = g.getCurrentRoom().getName();
+        //quest from bedroom
         if(currentRoom.equals("bedroom")){
             jTextArea1.setText(ExpInfo.printbedroom_answerC());
+            jButtonA.setVisible(false);
+            jButtonB.setVisible(false);
             jButtonC.setVisible(false);
             jButtonD.setVisible(false);
             questBedroom = true;
         }
+        //quest from dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerC());
@@ -581,13 +636,21 @@ public class Interface extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonCMouseClicked
 
+    /**
+     * Evenement when click a D button
+     * @param evt 
+     */
     private void jButtonDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDMouseClicked
         String currentRoom = g.getCurrentRoom().getName();
+        //quest from bedroom
         if(currentRoom.equals("bedroom")){
             jTextArea1.setText(ExpInfo.printbedroom_answerD());
+            jButtonA.setVisible(false);
+            jButtonB.setVisible(false);
             jButtonC.setVisible(false);
             jButtonD.setVisible(false);
         }
+        //quest from dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerD());
@@ -610,10 +673,10 @@ public class Interface extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCActionPerformed
 
-    private javax.swing.JDialog getYesNo (){
+    /*private javax.swing.JDialog getYesNo (){
         YesNo.setVisible(true);
         return YesNo;
-    }
+    }*/
     
     /**
      * @param args the command line arguments

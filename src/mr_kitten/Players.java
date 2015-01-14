@@ -23,7 +23,7 @@ public class Players
     private String currentPlayerRoom;
     private static ArrayList<Item> inventory;
     private int inventoryWeight = 0;
-    private static int maxWeight = 30;
+    private static int maxWeight = 130;
     private static int playerHP;
     
     /**
@@ -38,14 +38,14 @@ public class Players
     }
     
     /**
-     * get the inventory
+     * Get the inventory of player
      */
     public ArrayList<Item> getInventory(){
         return inventory;
     }
     
     /*
-     * Get the inventory of a player
+     * Print the inventory of player in SWING interface
      */
     public static void printInventoryIN(Interface in)
     {
@@ -66,6 +66,9 @@ public class Players
         
     }
     
+    /**
+     * Print the inventory of players for the console game
+     */
     public static void printInventory()
     {
         for (int i = 0;i<inventory.size();i++){
@@ -77,30 +80,40 @@ public class Players
         }
     }
     
+    /**
+     * Get playerHP
+     * @return 
+     */
     public int getPlayerHP(){
         return playerHP;
     }
     
+    /**
+     * Modify playerHP
+     * @param newPlayerHP 
+     */
     public static void setPlayerHP(int newPlayerHP){
         playerHP = newPlayerHP;
     }
+    
     /*
-     * Grab an item
+     * Grab an item by his name
      */
     public void grabItem (String name)
     {
-        //ArrayList<Item> tabItem = Item.getTab();
         ArrayList<Item> tabItem = Game.getListItem();
         boolean exist = false;
         for (int i=0;i<tabItem.size();i++){
             Item currentItem = tabItem.get(i);
             if (currentItem.getName().equals(name)){
                 exist = true;
+                //Check the weight
                 if (inventoryWeight + currentItem.getWeight() <= maxWeight){
                     inventory.add(currentItem);
                     inventoryWeight += currentItem.getWeight();
                 }
                 else {
+                    //Choose to delete a item
                     System.out.println("You're too heavy dude! Inventory is full! maxWeight = "+maxWeight);
                     System.out.println("Do you want delete a item ? (n/y)");
                     Scanner keyboard = new Scanner(System.in);
@@ -136,7 +149,9 @@ public class Players
                 }
             }
         }
-        System.out.println("You can't delete an item that you don't have!");
+        else{
+            System.out.println("You can't delete an item that you don't have!");
+        }
     }
     
     /*

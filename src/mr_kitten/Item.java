@@ -23,9 +23,7 @@ public class Item
     private String itemName;
     private int itemWeight;
     private String itemDescription;
-    //private static ArrayList<Item> tabItem = new ArrayList<Item>();
-    
-    
+        
     /**
      * Constructor for objects of class Item
      */
@@ -34,38 +32,43 @@ public class Item
         itemName = name;
         itemDescription = description;
         itemWeight = weight;
-        //tabItem.add(this);
     }
     
+    /**
+     * Get name of item
+     * @return 
+     */
     public String getName()
     {
         return itemName;
     }
     
+    /**
+     * Get description of item
+     * @return 
+     */
     public String getDescription()
     {
         return itemDescription;
     }
     
+    /**
+     * Get weight of item
+     * @return 
+     */
     public int getWeight()
     {
         return itemWeight;
     }
     
+    /**
+     * Look a item
+     * @return 
+     */
     public String lookItem()
     {
         String s = (getName()+ "\n"+ getDescription());
         return s;
     }
-    
-    /*public static ArrayList getTab()
-    {
-        return tabItem;
-    }
-    
-    public void addItem(String name, String description, int weight)
-    {
-        Item item = new Item(name,description,weight);
-        tabItem.add(item);
-    } */  
+     
 }
